@@ -1,0 +1,479 @@
+::-webkit-scrollbar {
+  width: 3px; /* Ancho de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white; /* Color de la barra */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-track {
+  background-color: black; /* Fondo de la barra */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+	overflow: hidden;
+	background-color: black;
+  overflow-y: scroll;
+  margin-bottom: 4rem;
+}
+
+/*BOTON*/
+#checkbox {
+    display: none;
+}
+  
+  .toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition-duration: .5s;
+    z-index: 99;
+
+  }
+  
+  .bars {
+    width: 100%;
+    height: 4px;
+    background-color: #9db5fd;
+    border-radius: 4px;
+  }
+  
+  #checkbox:checked + .nav {
+    left: 0;
+    transition: left 0.3s ease;
+}
+
+  #bar2 {
+    transition-duration: .8s;
+  }
+  
+  #bar1,#bar3 {
+    width: 70%;
+  }
+  
+  #checkbox:checked + .toggle .bars {
+    position: absolute;
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar2 {
+    transform: scaleX(0);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar1 {
+    width: 100%;
+    transform: rotate(45deg);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar3 {
+    width: 100%;
+    transform: rotate(-45deg);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle {
+    transition-duration: .5s;
+    transform: rotate(180deg);
+  }
+
+
+
+
+
+/*menu*/
+.nav{
+	position: fixed;
+    left: -300px; /* Oculta el menú completamente */
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: #fff;
+    transition: left 0.3s ease;
+    z-index: 98;
+}
+
+#checkbox:checked + .toggle + .nav {
+    left: 0; /* Muestra el menú al cambiar la posición izquierda a 0 */
+    transition: left 0.3s ease; /* Transición suave para el movimiento del menú */
+}
+
+.nav__link{
+	color: #303440;
+	display: block;
+	padding: 15px 0;
+	text-decoration: none;
+}
+
+.nav__link--inside:hover{
+	background: #f6f8fa;
+}
+
+.nav__link--inside{
+	border-radius: 6px;
+	padding-left: 20px;
+	text-align: left;
+	margin-left: 3rem;
+}
+
+.list{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	border-radius: 0 16px 16px 0;
+	background-color: #fff;
+	
+}
+
+.list__item{
+	list-style-type: none;
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+}
+
+.list__item--click{
+	cursor: pointer;
+}
+
+.list__button{
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	width: 70%;
+	margin: 0 auto;
+}
+
+.arrow .list__arrow{
+	transform: rotate(90deg);
+}
+
+.list__arrow{
+	margin-left: auto;
+	transition: transform .3s;
+}
+
+.list__show {
+    width: 80%;
+    margin-left: auto;
+    border-left: 2px solid #303440;
+    list-style: none;
+    transition: height .4s;
+    height: 0; /* Añadido: Inicialmente oculto */
+    overflow: hidden; /* Añadido para ocultar contenido fuera del área visible */
+}
+
+.list__item--click.active .list__show {
+    height: auto; /* Añadido: Mostrar cuando su contenedor padre está activo */
+}
+
+
+
+
+
+/* Estilos para el segundo menú */
+.top-menu {
+  position: absolute; /* Cambiado a posición absoluta */
+  top: 0;
+  right: 0;
+  padding: 10px;
+  z-index: 999; /* Asegura que esté por encima del contenido */
+}
+
+
+
+.top-menu__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: static;
+}
+
+.top-menu__list li {
+    display: inline-block;
+    margin-left: 10px; /* Espacio entre elementos */
+}
+
+/* Estilos para el subrayado */
+.top-menu__link {
+    position: relative;
+    text-decoration: none;
+    color: #9db5fd;
+    padding: 5px 10px;
+}
+
+.top-menu__link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px; 
+    background-color: #9db5fd; 
+    transform-origin: bottom right; 
+    transform: scaleX(0); 
+    transition: transform 0.3s ease; 
+}
+
+.top-menu__link:hover::after {
+    transform-origin: bottom left; 
+    transform: scaleX(1); 
+}
+
+
+
+
+
+/* Estilos para el contenido principal */
+/* before adding the img to the div with the 
+"card-img" class, remove css styles 
+.card-img .img::before and .card-img .img::after,
+then set the desired styles for .card-img. */
+
+.scroll-container {
+  height: 90%; /* Altura deseada del contenedor */
+  overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Permitir que los cards se envuelvan a la siguiente fila */
+  justify-content: center; /* Alinear en el centro horizontal */
+  gap: 60px; /* Separación entre los cards */
+  margin-top: 60px;
+}
+
+.card {
+  --font-color: #fefefe;
+  --font-color-sub: #7e7e7e;
+  --bg-color: #111;
+  --main-color: #fefefe;
+  --main-focus: #2d8cf0;
+  width: 230px;
+  height: 300px;
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  gap: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card:last-child {
+  justify-content: flex-end;
+}
+
+
+
+.card-img {
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  transition: all 0.5s;
+  display: flex; /* Para alinear la imagen correctamente */
+  align-items: center; /* Para centrar la imagen verticalmente */
+  justify-content: center; /* Para centrar la imagen horizontalmente */
+}
+
+.card-img img {
+  max-width: 100%; /* Ajustar la imagen al ancho máximo del contenedor */
+  height: auto;
+}
+
+.card-img:hover {
+  width: 100%;
+  height: 200px;
+}
+
+
+
+
+
+.card-title {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--font-color);
+}
+
+.card-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--font-color-sub);
+}
+
+.card-divider {
+  width: 100%;
+  border: 1px solid var(--main-color);
+  border-radius: 50px;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-price {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--font-color);
+}
+
+.card-price span {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--font-color-sub);
+}
+
+.card-btn {
+  height: 35px;
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  padding: 0 15px;
+  transition: all 0.3s;
+  width: 55px;
+}
+
+.card-btn svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--main-color);
+  transition: all 0.3s;
+}
+
+.card-img:hover {
+  transform: translateY(-3px);
+}
+
+.card-btn:hover {
+  border: 2px solid var(--main-focus);
+}
+
+.card-btn:hover svg {
+  fill: var(--main-focus);
+}
+
+.card-btn:active {
+  transform: translateY(3px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 30px 0; /* Reducir el padding en dispositivos más pequeños */
+  background: rgb(0, 0, 0);
+  flex-wrap: wrap; /* Permite que los elementos se ajusten a una nueva fila si no hay suficiente espacio horizontal */
+}
+
+.logos-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Asegura que los logos se ajusten automáticamente al tamaño de la pantalla */
+}
+
+.logo-container {
+  position: relative;
+  margin: 20px; /* Espacio entre los logos */
+}
+
+.nombre {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: transparent;
+  transition: color 0.5s ease;
+}
+
+.logo-container:hover .nombre {
+  color: white;
+  transition: filter 0.5s ease; 
+}
+
+.logo {
+  height: auto; /* Ajusta automáticamente la altura de los logos */
+  width: auto; /* Ajusta automáticamente el ancho de los logos */
+  max-height: 40px; /* Establece una altura máxima para los logos */
+  max-width: 40px; /* Establece un ancho máximo para los logos */
+  filter: brightness(0.5); /* Ajusta el brillo de las imágenes */
+  transition: filter 0.5s ease; /* Agrega una transición suave */
+}
+
+.logo:hover {
+  filter: brightness(1); /* Al pasar el ratón, aumenta el brillo */
+}
+
+
+
+
+
+

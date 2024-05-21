@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Veicoli</title>
+    <link rel="icon" href="../icono_web.png" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="edit.css">
+	<link href="https://fonts.googleapis.com/css?family=Dancing+Script:700|Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<input type="checkbox" id="checkbox">
+<label for="checkbox" class="toggle">
+    <div class="bars" id="bar1"></div>
+    <div class="bars" id="bar2"></div>
+    <div class="bars" id="bar3"></div>
+</label>
+
+	<nav class="nav">
+		<ul class="list">
+			<li class="list__item list__item--click">
+				<div class="list__button list__button--click">
+					<a href="../index.html" class="nav__link"><b>Inicio</b></a>
+				</div>
+			</li>
+
+			<li class="list__item list__item--click">
+				<div class="list__button list__button--click">
+					<img src="../assets/terrestre.svg" class="list_img">
+					<a href="#" class="nav__link"><b>Terrestres</b></a>
+					<img src="../assets/arrow.svg" class="list__arrow">
+				</div>
+
+				<ul class="list__show">
+					<li class="list__inside">
+						<a href="../terrestres/coches.html" class="nav__link nav__link--inside">Coches</a>
+					</li>
+
+					<li class="list__inside">
+						<a href="#" class="nav__link nav__link--inside">Furgonetas</a>
+					</li>
+
+					<li class="list__inside">
+						<a href="caravanas.html" class="nav__link nav__link--inside">Auto caravanas</a>
+					</li>
+
+					<li class="list__inside">
+						<a href="motos.html" class="nav__link nav__link--inside">Motos</a>
+					</li>
+
+					<li class="list__inside">
+						<a href="#" class="nav__link nav__link--inside">Camiones</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="list__item list__item--click">
+				<div class="list__button list__button--click">
+					<img src="../assets/acuatico.svg" class="list_img">
+					<a href="#" class="nav__link"><b>Acuáticos</b></a>
+					<img src="../assets/arrow.svg" class="list__arrow">
+				</div>
+
+				<ul class="list__show">
+					<li class="list__inside">
+						<a href="#" class="nav__link nav__link--inside">Lanchas</a>
+					</li>
+
+					<li class="list__inside">
+						<a href="#" class="nav__link nav__link--inside">Motos de agua</a>
+					</li>
+
+					<li class="list__inside">
+						<a href="#" class="nav__link nav__link--inside">Yates</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="list__item list__item--click">
+				<div class="list__button list__button--click">
+					<img src="../assets/aeros.svg" class="list_img">
+					<a href="#" class="nav__link"><b>Aéreos</b></a>
+					<img src="../assets/arrow.svg" class="list__arrow">
+				</div>
+
+				<ul class="list__show">
+					<li class="list__inside">
+						<a href="#" class="nav__link nav__link--inside">Aviones</a>
+					</li>
+
+					<li class="list__inside">
+						<a href="#" class="nav__link nav__link--inside">Helicópteros</a>
+					</li>
+
+					<li class="list__inside">
+						<a href="#" class="nav__link nav__link--inside">Drones</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<script src="../main.js"></script>
+
+<!-- Segundo menú -->
+<nav class="top-menu">
+	<ul class="top-menu__list">
+		<li><a href="mailto:veicoli@gmail.com" class="top-menu__link">Contacto</a></li>
+		<li><a href="#" class="top-menu__link">Ayuda</a></li>
+		<li><a href="inicio_sesion.html" class="top-menu__link">Iniciar sesión</a></li>
+	</ul>
+</nav>
+
+
+    <!-- CARTA -->
+    <div class="center-container">
+        <div class="card-container">
+            <div class="card">
+                <div class="card-img">
+                    <div class="img">
+                        <img src="add.png" alt="Add Image" id="addImage">
+                    </div>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                </div>
+                
+                <!-- Campo de texto para que el usuario escriba el nombre del coche -->
+                <div class="card-title">
+                    <input type="text" placeholder="Nombre del coche" class="car-name-input">
+                </div>
+                
+                <div class="card-subtitle">Product description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                <hr class="card-divider">
+                <div class="card-footer">
+                    <div class="price-input-container">
+                        <span class="currency">€</span>
+                        <!-- Campo de texto para que el usuario introduzca el precio -->
+                        <input type="text" placeholder="Precio" class="price-input">
+                    </div>
+                    <button type="button" class="button">
+						<span class="button__text">Add Item</span>
+						<span class="button__icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
+								<line y2="19" y1="5" x2="12" x1="12"></line>
+								<line y2="12" y1="12" x2="19" x1="5"></line>
+							</svg>
+						</span>
+					</button>
+					
+					<div id="success-message" style="display: none;">¡Insertado con éxito!</div>
+					
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+<!--REMPLAZAR FOTO-->
+<script>
+	document.getElementById('addImage').addEventListener('click', function() {
+		document.getElementById('fileInput').click();
+	});
+	
+	document.getElementById('fileInput').addEventListener('change', function(event) {
+		const file = event.target.files[0];
+		if (file) {
+			const reader = new FileReader();
+			reader.onload = function(e) {
+				document.getElementById('addImage').src = e.target.result;
+			}
+			reader.readAsDataURL(file);
+		}
+	});
+	</script>
+	
+
+	<script>
+		document.querySelector('.button').addEventListener('click', function() {
+			var carName = document.querySelector('.car-name-input').value;
+			var price = document.querySelector('.price-input').value;
+			var imageSrc = document.querySelector('.card-img img').src;
+	
+			var newItem = {
+				carName: carName,
+				price: price,
+				imageSrc: imageSrc
+			};
+	
+			var items = JSON.parse(localStorage.getItem('items')) || [];
+			items.push(newItem);
+			localStorage.setItem('items', JSON.stringify(items));
+	
+			// Mostrar mensaje de éxito
+			var successMessage = document.getElementById('success-message');
+			successMessage.style.display = 'block';
+		});
+	</script>
+	
+	
+
+
+
+
+
+
+
+
+
+         BORRRAR REGISTROS
+
+            
+<script>
+    // Maneja el evento de clic en el botón "Add Item"
+    document.querySelector('.button').addEventListener('click', function() {
+        // Elimina los registros actuales antes de agregar nuevos datos
+        localStorage.removeItem('items');
+
+        var carName = document.querySelector('.car-name-input').value;
+        var price = document.querySelector('.price-input').value;
+        var imageSrc = document.querySelector('.card-img img').src;
+
+        var newItem = {
+            carName: carName,
+            price: price,
+            imageSrc: imageSrc
+        };
+
+        var items = JSON.parse(localStorage.getItem('items')) || [];
+        items.push(newItem);
+        localStorage.setItem('items', JSON.stringify(items));
+
+        window.location.href = 'coches.html';
+    });
+</script>
+

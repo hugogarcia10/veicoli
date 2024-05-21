@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+	overflow: hidden;
+	background-color: black;
+
+}
+
+/*BOTON*/
+#checkbox {
+    display: none;
+}
+  
+  .toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition-duration: .5s;
+    z-index: 99;
+
+  }
+  
+  .bars {
+    width: 100%;
+    height: 4px;
+    background-color: #9db5fd;
+    border-radius: 4px;
+  }
+  
+  #checkbox:checked + .nav {
+    left: 0;
+    transition: left 0.3s ease;
+}
+
+  #bar2 {
+    transition-duration: .8s;
+  }
+  
+  #bar1,#bar3 {
+    width: 70%;
+  }
+  
+  #checkbox:checked + .toggle .bars {
+    position: absolute;
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar2 {
+    transform: scaleX(0);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar1 {
+    width: 100%;
+    transform: rotate(45deg);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar3 {
+    width: 100%;
+    transform: rotate(-45deg);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle {
+    transition-duration: .5s;
+    transform: rotate(180deg);
+  }
+
+
+
+
+
+/*menu*/
+.nav{
+	position: fixed;
+    left: -300px; /* Oculta el menú completamente */
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: #fff;
+    transition: left 0.3s ease;
+    z-index: 90;
+}
+
+#checkbox:checked + .toggle + .nav {
+    left: 0; /* Muestra el menú al cambiar la posición izquierda a 0 */
+    transition: left 0.3s ease; /* Transición suave para el movimiento del menú */
+}
+
+.nav__link{
+	color: #303440;
+	display: block;
+	padding: 15px 0;
+	text-decoration: none;
+}
+
+.nav__link--inside:hover{
+	background: #f6f8fa;
+}
+
+.nav__link--inside{
+	border-radius: 6px;
+	padding-left: 20px;
+	text-align: left;
+	margin-left: 3rem;
+}
+
+.list{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	border-radius: 0 16px 16px 0;
+	background-color: #fff;
+	
+}
+
+.list__item{
+	list-style-type: none;
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+}
+
+.list__item--click{
+	cursor: pointer;
+}
+
+.list__button{
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	width: 70%;
+	margin: 0 auto;
+}
+
+.arrow .list__arrow{
+	transform: rotate(90deg);
+}
+
+.list__arrow{
+	margin-left: auto;
+	transition: transform .3s;
+}
+
+.list__show {
+    width: 80%;
+    margin-left: auto;
+    border-left: 2px solid #303440;
+    list-style: none;
+    transition: height .4s;
+    height: 0; /* Añadido: Inicialmente oculto */
+    overflow: hidden; /* Añadido para ocultar contenido fuera del área visible */
+}
+
+.list__item--click.active .list__show {
+    height: auto; /* Añadido: Mostrar cuando su contenedor padre está activo */
+}
+
+
+
+
+
+/* Estilos para el segundo menú */
+.top-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    z-index: 999; /* Asegura que esté por encima del contenido */
+}
+
+.top-menu__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+.top-menu__list li {
+    display: inline-block;
+    margin-left: 10px; /* Espacio entre elementos */
+}
+
+/* Estilos para el subrayado */
+.top-menu__link {
+    position: relative;
+    text-decoration: none;
+    color: #9db5fd;
+    padding: 5px 10px;
+}
+
+.top-menu__link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px; /* Altura del subrayado */
+    background-color: #9db5fd; /* Color del subrayado */
+    transform-origin: bottom right; /* Establece el origen de la transformación */
+    transform: scaleX(0); /* Inicialmente sin ancho */
+    transition: transform 0.3s ease; /* Transición suave de la transformación */
+}
+
+.top-menu__link:hover::after {
+    transform-origin: bottom left; /* Cambia el origen de la transformación */
+    transform: scaleX(1); /* Escala horizontalmente para mostrar el subrayado */
+}
+
+
+
+/* Estilos para la imagen en el centro */
+.center-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.center-image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para el contenido principal */
+.main-content {
+    /* Ajusta el contenido principal para que no esté cubierto por el menú */
+    margin-top: 40px; /* Ajusta este valor según el tamaño del segundo menú */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*CHAT BOT*/
+.chat-container {
+  width: 300px;
+  height: 400px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  background: #353535;
+  border-color: #353535;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out; /* Añadir una transición de transformación */
+}
+
+.chat-container.active {
+  transform: translateY(0); /* Mostrar el chatbot al moverlo de nuevo a su posición original */
+}
+
+/* Styling para los mensajes */
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: #f0f0f0; /* Añadir un fondo a los mensajes */
+  background: rgb(88, 88, 88); /* Añadir un fondo a los mensajes */
+  padding: 10px;
+}
+
+/* Styling para cada mensaje */
+.message {
+  margin-bottom: 10px;
+  padding: 8px 12px; /* Añadir espacio interno al mensaje */
+  border-radius: 5px;
+  word-wrap: break-word; /* Permitir que los mensajes largos salten de línea */
+  background-color: #e0e0e0; /* Cambiar el color de fondo de los mensajes */
+}
+
+.message.user {
+  text-align: right;
+  color: rgb(255, 255, 255);
+  background-color: #5b6da2;
+  border-radius: 0.5rem 0 0.5rem 0.5rem;
+  color: white;
+  background-color: #0056b3;
+  border-radius: 0.7rem 0  0.7rem 0.7rem;
+  margin-left: 2rem;
+}
+
+.message.bot {
+  text-align: left;
+  color: white;
+  background-color: #303440; /* Cambiar el color de fondo de los mensajes */
+  margin-right: 2rem;
+  border-radius: 0 0.5rem 0.5rem 0.5rem;
+  background-color: #303440;
+  border-radius: 0 0.7rem 0.7rem 0.7rem;
+  margin-right: 2rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center; /* Center the input and button vertically */
+}
+
+.input-group input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid rgb(88, 88, 88);
+  border-radius: 5px 5px 5px 5px;
+  background-color: rgb(88, 88, 88);
+}
+
+.input-group button {
+  padding: 0;
+  border: 1px solid #ddd;
+  background: #5b6da2;
+  background: #0056b3;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 10px; /* Add margin to separate the button from the input */
+}
+
+.input-group button:hover {
+  background: #5e6e9d;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Agregar sombra al contenedor */
+}
+
+.input-group button svg {
+  fill: white;
+}
